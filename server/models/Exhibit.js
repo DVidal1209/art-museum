@@ -1,5 +1,4 @@
 const { Schema, model } = require ("mongoose");
-const commentSchema = require("./Comment")
 
 const exhibitSchema = new Schema(
     {
@@ -16,7 +15,12 @@ const exhibitSchema = new Schema(
             type: String,
             required: true
         },
-        comments: [commentSchema]
+        comments: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Comment',
+            }
+        ]
     }
 )
 
