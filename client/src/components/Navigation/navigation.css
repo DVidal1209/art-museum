@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Lora, sans-serif;
+    background-color: #F4F4F4;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    background-color: #932432;
+    color: #F3F3F3;
+    height: 90px;
+    padding: 30px 25px;
+}
+
+img {
+    height: 150px;
+    width: 150px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+h2 {
+    margin-right: auto;
+    font-weight: 600;
+    
+}
