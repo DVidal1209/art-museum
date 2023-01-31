@@ -1,7 +1,5 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, Types } = require("mongoose");
 const bcrypt = require('bcrypt');
-
-const museumSchema = require("./Museum")
 
 
 const userSchema = new Schema(
@@ -17,7 +15,10 @@ const userSchema = new Schema(
             unique: true,
             match: [/.+@.+\..+/, 'Must use a valid email address'],
         },
-        museum: [museumSchema],
+        museum: {
+            type: Schema.Types.ObjectId,
+            ref: 'Museum',
+        },
         password: {
             type: String,
             required: true,
@@ -37,7 +38,6 @@ userSchema.pre('save', async function (next) {
         const saltRounds = 10;
         this.password = await bcrypt.hash(this.password, saltRounds);
     }
-
     next();
 });
 

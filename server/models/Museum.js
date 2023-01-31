@@ -12,4 +12,7 @@ const museumSchema = new Schema(
     }
 )
 
-module.export = museumSchema;
+
+const Museum =  model ('Museum', museumSchema);
+
+module.export = Museum;

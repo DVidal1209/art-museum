@@ -5,8 +5,14 @@ const commentSchema = new Schema(
         commentbody: {
             type: String,
             required: true
+        },
+        userid: {
+            type: String,
+            required: true,
         }
     }
 )
 
-module.export = commentSchema;
+const Comment =  model ('Comment', commentSchema);
+
+module.export = Comment;
