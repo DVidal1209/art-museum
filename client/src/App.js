@@ -1,10 +1,33 @@
 import './App.css';
-import {useState} from 'react';
+import { useState } from 'react';
+
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink
+} from "@apollo/client";
+
+import { setContext } from "@apollo/client/link/context"
+
 import Header from './components/Header/Header';
 import Home from './components/Pages/Home/Home';
 import Login from './components/Pages/Login/Login';
 import Signup from './components/Pages/Signup/Signup';
 
+const httpLink = createHttpLink({
+  uri: '/graphql',
+})
+
+const authLink = setContext((_req, { header }) => {
+  const token = localStorage.getItem("id_token")
+  return { headers: { ...header, authorization: token ? `Bearer ${token}` : "" } }
+})
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache()
+});
 
 function App() {
   const [page, setPage] = useState('home')
@@ -21,15 +44,17 @@ function App() {
   }
 
   const changePageFunction = (someString) => {
-    setPage(someString) 
+    setPage(someString)
   }
 
   return (
-   <>
-   <Header changePageFunction={changePageFunction}></Header>
-   {render()}
-   </>
-    
+    <ApolloProvider client={client}>
+      <>
+        <Header changePageFunction={changePageFunction}></Header>
+        {render()}
+      </>
+    </ApolloProvider>
+
   );
 }
 
