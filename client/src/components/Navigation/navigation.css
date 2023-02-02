@@ -45,7 +45,8 @@ h2 {
       }
 
       h2:hover {
-        color: #FFFF;
+        color: #36454F
+        ;
       }
 
       h2:hover::after {
