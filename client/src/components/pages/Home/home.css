@@ -1,8 +1,93 @@
+/* ---------- General Elements ---------- */
+
+body {
+    background-color: black;
+}
+
+h1, h2, h3, h4, p {
+    color: rgb(230, 230, 230);
+}
+
+h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+h4 {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* ---------------- Main ---------------- */
+
 #hero {
-    background-image:
-    linear-gradient(to bottom, transparent, black),
-    url('../../../images/hero.jpeg');
+    display: flex;
+    justify-content: center;
+
+    padding-top: 300px;
     width: 100%;
-    height: 400px;
+    height: 500px;
+    
+    background-image:
+    linear-gradient(rgba(0, 0, 0, .2), black),
+    url('../../../images/hero.jpeg');
     background-size: cover;
+}
+
+/* Feature Showcase */
+
+#features {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    
+    height: 100px;
+    width: 95%;
+}
+
+.feature-showcase {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 33.3%;
+    
+    text-align: center;
+
+    transition: all ease-in-out 0.5s;
+}
+
+.feature-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    opacity: 1;
+
+    transition: all ease-in-out 0.5s;
+}
+
+.feature-description {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    opacity: 0;
+
+    transition: all ease-in-out 0.5s;
+}
+
+/* Animations */
+
+.feature-showcase:hover {
+    cursor: default;
+}
+
+.feature-showcase:hover .feature-title {
+    opacity: 0;
+}
+
+.feature-showcase:hover .feature-description {
+    opacity: 1;
 }
