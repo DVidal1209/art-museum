@@ -12,6 +12,7 @@ body {
 nav {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: transparent;
     color: #36454F;
     height: 90px;
