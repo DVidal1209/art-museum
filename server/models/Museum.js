@@ -8,7 +8,14 @@ const museumSchema = new Schema(
             type: String,
             required: true
         },
-        exhibits: [exhibitSchema]
+        userid: {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        },
+        exhibits: {
+            type: Schema.Types.ObjectId,
+            ref: "Exhibit"
+        }
     }
 )
 
