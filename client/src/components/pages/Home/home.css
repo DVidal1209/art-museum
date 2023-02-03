@@ -8,6 +8,11 @@ h1, h2, h3, h4, p {
     color: rgb(230, 230, 230);
 }
 
+h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
 h2 {
     margin: 0;
     font-size: 24px;
@@ -18,13 +23,25 @@ h4 {
     font-size: 16px;
 }
 
+.m-b-s {
+    margin-bottom: 25px !important;
+}
+
+.m-b-m {
+    margin-bottom: 50px !important;
+}
+
+.m-b-l {
+    margin-bottom: 75px !important;
+}
+
 /* ---------------- Main ---------------- */
 
 #hero {
     display: flex;
     justify-content: center;
 
-    padding-top: 300px;
+    padding-top: 325px;
     background-image:
     linear-gradient(to bottom, transparent, #181818),
     url('../../../images/hero.jpeg');
@@ -44,7 +61,7 @@ h4 {
     width: 95%;
 }
 
-.feature-showcase {
+.feature {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -79,14 +96,63 @@ h4 {
 
 /* Animations */
 
-.feature-showcase:hover {
+.feature:hover {
     cursor: default;
 }
 
-.feature-showcase:hover .feature-title {
+.feature:hover .feature-title {
     opacity: 0;
 }
 
-.feature-showcase:hover .feature-description {
+.feature:hover .feature-description {
     opacity: 1;
+}
+
+/* Feature Display */
+
+.feature-display {
+    display: flex;
+    justify-content: space-between;
+
+    height: 300px;
+    width: 45%;
+    background-color: rgba(255, 255, 255, 0.025);
+}
+
+.right {
+    margin-left: 45%;
+}
+
+.left {
+    margin-left: 10%;
+}
+
+.display-image {
+    height: 100%;
+    width: 62%;
+    background-color: transparent;
+}
+
+.display-info {
+    height: 100%;
+    width: 33%;
+    background-color: transparent;
+}
+
+.display-title {
+    padding: 1em 1em 0 1em;
+}
+
+.display-description {
+    padding: 1em 1em 1em 1em;
+}
+
+@media screen and (max-width: 960px){
+    .right, .left {
+        margin-left: 0;
+    }
+    .feature-display {
+        width: 95%;
+        margin: 0 auto;
+    }
 }
