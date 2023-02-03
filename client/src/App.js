@@ -4,7 +4,7 @@ import Header from './components/Header/Header';
 import Home from './components/pages/Home/Home';
 import Login from './components/pages/Login/Login';
 import Signup from './components/pages/Signup/Signup';
-
+import Museums from './components/pages/Museums/Museums';
 
 function App() {
   const [page, setPage] = useState('home')
@@ -17,6 +17,9 @@ function App() {
     }
     else if (page === 'signup') {
       return <Signup></Signup>
+    }
+     else if (page === 'museums') {
+      return <Museums></Museums>
     }
   }
 

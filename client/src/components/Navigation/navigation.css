@@ -47,8 +47,8 @@ h2 {
 
       h2:hover {
         color: #36454F
-        ;
-      }
+        
+      };
 
       h2:hover::after {
         transform: scaleX(1);
