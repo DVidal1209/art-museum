@@ -24,4 +24,6 @@ const exhibitSchema = new Schema(
     }
 )
 
-module.export = exhibitSchema;
+const Exhibit = model ("Exhibit", exhibitSchema)
+
+module.export = Exhibit;

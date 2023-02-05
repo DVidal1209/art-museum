@@ -1,19 +1,25 @@
 const express = require ("express");
 const { ApolloServer } = require ("apollo-server-express")
+const { authMiddleware } = require("../../../21-MERN/02-Challenge/book-search-engine/server/utils/auth");
 
 const { typeDefs, resolvers } = require ("./schema")
-const db = require("./config/connection")
+const db = require("./config/connection");
 
 const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
     typeDefs,
-    resolvers
+    resolvers,
+    context: authMiddleware
 })
 
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, "../client"))
+})
 
 const startApolloServert = async (typeDefs, resolvers) => { 
     await server.start();
