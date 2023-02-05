@@ -14,9 +14,7 @@ import Header from './components/Header/Header';
 import Home from './components/pages/Home/Home';
 import Login from './components/pages/Login/Login';
 import Signup from './components/pages/Signup/Signup';
-<<<<<<< HEAD
 import Museums from './components/pages/Museums/Museums';
-=======
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -31,7 +29,6 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache()
 });
->>>>>>> 52e0cf7a17932afda8c6c511233c9407810d4bf5
 
 function App() {
   const [page, setPage] = useState('home')

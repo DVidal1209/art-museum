@@ -37,8 +37,8 @@ const typeDefs = gql`
     }
 
     type CreatedComment {
-        Exhibit
-        Comment
+        Exhibit: [Exhibit]
+        Comment: [Comment]
     }
 
     type Query {
