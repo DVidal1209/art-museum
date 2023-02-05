@@ -16,6 +16,7 @@ import Home from './components/pages/Home/Home';
 import Login from './components/pages/Login/Login';
 import Signup from './components/pages/Signup/Signup';
 import Museums from './components/pages/Museums/Museums';
+import Footer from './components/Footer/Footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -57,6 +58,7 @@ function App() {
       <>
         <Header changePageFunction={changePageFunction}></Header>
         {render()}
+        <Footer></Footer>
       </>
     </ApolloProvider>
 
