@@ -151,7 +151,7 @@ h4 {
     .right, .left {
         margin-left: 0;
     }
-    .feature-display {
+    #home-content .feature-display {
         width: 95%;
         margin: 0 auto;
     }
