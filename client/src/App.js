@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import {
   ApolloClient,
@@ -14,6 +15,8 @@ import Header from './components/Header/Header';
 import Home from './components/pages/Home/Home';
 import Login from './components/pages/Login/Login';
 import Signup from './components/pages/Signup/Signup';
+import Museums from './components/pages/Museums/Museums';
+import Footer from './components/Footer/Footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -41,6 +44,9 @@ function App() {
     else if (page === 'signup') {
       return <Signup></Signup>
     }
+     else if (page === 'museums') {
+      return <Museums></Museums>
+    }
   }
 
   const changePageFunction = (someString) => {
@@ -52,6 +58,7 @@ function App() {
       <>
         <Header changePageFunction={changePageFunction}></Header>
         {render()}
+        <Footer></Footer>
       </>
     </ApolloProvider>
 
