@@ -2,7 +2,7 @@ import React from 'react';
 //fix this path?
 import '../Login/login.css'
 
-export class login extends React.Component {
+export default class Login extends React.Component {
 
   constructor(props) {
     super(props);
