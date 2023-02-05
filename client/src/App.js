@@ -9,7 +9,7 @@ import {
   createHttpLink
 } from "@apollo/client";
 
-import { setContext } from "@apollo/client/link/context"
+import { setContext } from "@apollo/client/link/context";
 
 import Header from './components/Header/Header';
 import Home from './components/pages/Home/Home';
@@ -33,35 +33,33 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const [page, setPage] = useState('home')
-  const render = () => {
-    if (page === 'home') {
-      return <Home></Home>
-    }
-    else if (page === 'login') {
-      return <Login></Login>
-    }
-    else if (page === 'signup') {
-      return <Signup></Signup>
-    }
-     else if (page === 'museums') {
-      return <Museums></Museums>
-    }
-  }
-
-  const changePageFunction = (someString) => {
-    setPage(someString)
-  }
-
   return (
     <ApolloProvider client={client}>
-      <>
-        <Header changePageFunction={changePageFunction}></Header>
-        {render()}
-        <Footer></Footer>
-      </>
-    </ApolloProvider>
+      <Router>
+        <Header></Header>
+        <Routes>
+          <Route
+            path='/'
+            element={<Home />}
+          />
 
+          <Route
+            path='/museums'
+            element={<Museums />}
+          />
+
+          <Route
+            path='/signup'
+            element={<Signup />}
+          />
+
+          <Route
+            path='/login'
+            element={<Login />}
+          />
+        </Routes>
+      </Router>
+    </ApolloProvider>
   );
 }
 
