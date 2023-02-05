@@ -14,7 +14,7 @@ const museumSchema = new Schema(
         },
         exhibits: {
             type: Schema.Types.ObjectId,
-            ref: "Exhibit"
+            ref: 'Exhibit'
         }
     }
 )
