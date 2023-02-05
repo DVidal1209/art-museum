@@ -110,7 +110,7 @@ h4 {
 
 /* Feature Display */
 
-.feature-display {
+#home-content .feature-display {
     display: flex;
     justify-content: space-between;
 
