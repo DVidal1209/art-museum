@@ -21,12 +21,10 @@ nav {
 
 nav img {
     height: 100%;
-    margin-left: 100px;
-    margin-right: 100px;
 }
 
 nav h2 {
-    margin-right: auto;
+    margin: 0 auto;
     font-weight: 600;
     text-transform: uppercase;
       transition: 0.5s
