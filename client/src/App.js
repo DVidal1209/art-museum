@@ -36,7 +36,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Header></Header>
+        <Header />
         <Routes>
           <Route
             path='/'
@@ -59,6 +59,7 @@ function App() {
           />
         </Routes>
       </Router>
+      <Footer />
     </ApolloProvider>
   );
 }
