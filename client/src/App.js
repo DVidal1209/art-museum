@@ -60,7 +60,6 @@ function App() {
         </Routes>
         <Footer></Footer>
       </Router>
-      <Footer />
     </ApolloProvider>
   );
 }
