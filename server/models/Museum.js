@@ -21,4 +21,4 @@ const museumSchema = new Schema(
 
 const Museum =  model ('Museum', museumSchema);
 
-module.export = Museum;
+module.exports = Museum

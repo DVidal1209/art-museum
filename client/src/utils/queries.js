@@ -88,11 +88,11 @@ export const SINGLE_EXHIBIT = gql`
             photo
             body
             comments {
-            _id
-            commentbody
-            userid {
                 _id
-            }
+                commentbody
+                userid {
+                    _id
+                }
             }
         }
     }  

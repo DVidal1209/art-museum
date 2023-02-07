@@ -14,8 +14,6 @@ const resolvers = {
         me: async (parent, args, context) => {
             console.log("This it the context", context)
             if (context.user) {
-                console.log("This it the context user", context.user)
-
                 return User.findOne({ _id: context.user._id }).populate("museum");
             }
             console.log("End of block")
@@ -23,14 +21,14 @@ const resolvers = {
         },
         // getMusuems query
         getMuseums: async () => {
-            const result = Museum.find({}).populate("exhibits")
+            const result = await Museum.find({}).populate("exhibits") // Might need await
 
             return result
         },
         // myMuseum Query
         myMuseum: async (parent, args, context) => {
             if (context.user){
-                const result = Museum.findOne({ userid: context.user._id }).populate('exhibits')
+                const result = await Museum.findOne({ userid: context.user._id }).populate('exhibits')
                 return result
             }
             
@@ -39,13 +37,13 @@ const resolvers = {
         },
         // singleMuseum Query
         singleMuseum: async (parent, args) => {
-            const result = Museum.findOne({ _id: args.museumId }).populate("exhibits")
+            const result = await Museum.findOne({ _id: args.museumId }).populate("exhibits")
 
             return result
         },
         // singleExhibit Query
         singleExhibit: async (parent, args) => {
-            const result = Exhibit.findOne({ _id: args._id })
+            const result = await Exhibit.findOne({ _id: args._id }).populate("comments")
 
             return result
         },

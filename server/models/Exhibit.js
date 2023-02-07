@@ -30,4 +30,4 @@ const exhibitSchema = new Schema(
 
 const Exhibit = model ("Exhibit", exhibitSchema)
 
-module.export = Exhibit;
+module.exports = Exhibit;
