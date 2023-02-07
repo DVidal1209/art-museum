@@ -1,6 +1,5 @@
 const { Schema, model } = require("mongoose");
 
-const exhibitSchema = require("./Exhibit")
 
 const museumSchema = new Schema(
     {
@@ -22,4 +21,4 @@ const museumSchema = new Schema(
 
 const Museum =  model ('Museum', museumSchema);
 
-module.export = Museum;
+module.exports = Museum

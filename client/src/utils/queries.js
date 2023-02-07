@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const GET_ME = gql`
-    query Query {
+    query me {
         me {
             _id
             username
@@ -15,7 +15,7 @@ export const GET_ME = gql`
 `
 
 export const GET_USERS = gql`
-    query Query {
+    query getUsers {
         getUsers {
             _id
             username
@@ -26,4 +26,98 @@ export const GET_USERS = gql`
             }
         }
     }
+`
+
+export const GET_MUSEUMS = gql`
+    query getMuseums {
+        getMuseums {
+            _id
+            museumName
+            userid
+            exhibits {
+                _id
+                museumId
+                exhibitName
+                photo
+                body
+            }
+        }
+    }
+`
+
+export const MY_MUSEUM = gql`
+    query myMuseum {
+        myMuseum {
+            _id
+            museumName
+            userid
+            exhibits {
+                _id
+                museumId
+                exhibitName
+                photo
+                body
+            }
+        }
+    }
+`
+
+export const SINGLE_MUSEUM = gql`
+    query singleMuseum {
+        singleMuseum {
+            _id
+            museumName
+            userid
+            exhibits {
+            _id
+            museumId
+            exhibitName
+            photo
+            body
+            }
+        }
+    }
+`
+
+export const SINGLE_EXHIBIT = gql`
+    query singleExhibit {
+        singleExhibit {
+            _id
+            museumId
+            exhibitName
+            photo
+            body
+            comments {
+                _id
+                commentbody
+                userid {
+                    _id
+                }
+            }
+        }
+    }  
+`
+
+export const MY_COMMENTS = gql`
+    query myComments {
+        myComments {
+            _id
+            commentbody
+            exhibitid {
+            _id
+            }
+        }
+    }  
+`
+
+export const GET_COMMENTS = gql`
+    query myComments {
+        getComments {
+            _id
+            commentbody
+            userid {
+                _id
+            }
+        }
+    }  
 `
