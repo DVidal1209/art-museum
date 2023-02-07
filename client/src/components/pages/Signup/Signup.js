@@ -13,6 +13,10 @@ export default class Signup extends React.Component {
       <div className='content'>
         <div className='form'>
           <div className='form-group'>
+            <label htmlFor='username'>Username</label>
+            <input type='text' name='username' placeholder='Username'/>
+          </div>
+          <div className='form-group'>
             <label htmlFor='email'>Email</label>
             <input type='email' name='email' placeholder='Email'/>
           </div>
