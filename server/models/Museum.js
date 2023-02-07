@@ -1,6 +1,5 @@
 const { Schema, model } = require("mongoose");
 
-const exhibitSchema = require("./Exhibit")
 
 const museumSchema = new Schema(
     {

@@ -2,6 +2,10 @@ const { Schema, model } = require ("mongoose");
 
 const exhibitSchema = new Schema(
     {
+        museumId: {
+            type: Schema.Types.ObjectId,
+            ref: 'Museum',
+        },
         exhibitName: {
             type: String,
             required: true,
