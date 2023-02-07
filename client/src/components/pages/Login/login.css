@@ -60,6 +60,20 @@ input:focus {
     box-shadow: 0px 0px 12px 0.8px #ffff;
 }
 
-.footer {
-    margin-top: 3em;
+.login-footer {
+    margin: 2em 0 2em 0;
+    height: 40px;
+    width: 100px;
+    background-color: rgba(255, 255, 255, 0.04);
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn {
+    margin-top: 7px;
+    transition: 0.5s;
+}
+
+.btn:hover {
+    color: #36454F;
 }

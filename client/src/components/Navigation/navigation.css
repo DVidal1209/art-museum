@@ -27,7 +27,7 @@ nav h2 {
     margin: 0 auto;
     font-weight: 600;
     text-transform: uppercase;
-      transition: 0.5s
+    transition: 0.5s
 }
 
 nav h2:hover {
