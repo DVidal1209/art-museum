@@ -11,26 +11,6 @@ import {
 
 import { setContext } from "@apollo/client/link/context";
 
-// // 
-// import { 
-//   GET_ME, 
-//   GET_COMMENTS, 
-//   GET_MUSEUMS, 
-//   GET_USERS, 
-//   MY_MUSEUM, 
-//   MY_COMMENTS, 
-//   SINGLE_MUSEUM, 
-//   SINGLE_EXHIBIT  } from './utils/queries';
-
-// import {
-//   LOGIN_USER,
-//   NEW_USER,
-//   NEW_MUSEUM,
-//   NEW_EXHIBIT,
-//   ADD_COMMENT
-// } from './utils/mutations'
-
-
 import Header from './components/Header/Header';
 import Home from './components/pages/Home/Home';
 import Login from './components/pages/Login/Login';
