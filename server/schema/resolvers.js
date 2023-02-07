@@ -6,7 +6,7 @@ const { User, Comment, Exhibit, Museum } = require("../models");
 const resolvers = {
     Query: {
         getUsers: async () => {
-            const result = User.find({});
+            const result = User.find({}).populate("museum");
             return result
         },
         me: async (parent, args, context) => {
@@ -14,7 +14,7 @@ const resolvers = {
             if (context.user) {
             console.log("This it the context user", context.user)
       
-              return User.findOne({ _id: context.user._id });
+              return User.findOne({ _id: context.user._id }).populate("museum");
             }
             console.log("End of block")
             throw new AuthenticationError('You need to be logged in!');
