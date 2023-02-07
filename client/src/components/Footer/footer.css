@@ -3,7 +3,7 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #111;
+    background: #181818;
     height: auto;
     width: 100vw;
     padding-top: 40px;
@@ -60,7 +60,7 @@ footer {
 }
 
 .socials a:hover i {
-    color: aqua;
+    color: #E0FFFF;
 }
 
 .footer-menu {
@@ -82,7 +82,7 @@ footer {
 }
 
 .footer-menu ul li a:hover {
-    color: #27bcda;
+    color: #EDEADE;
 }
 
 @media (max-width:500px) {
