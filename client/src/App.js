@@ -58,6 +58,7 @@ function App() {
             element={<Login />}
           />
         </Routes>
+        <Footer></Footer>
       </Router>
     </ApolloProvider>
   );
