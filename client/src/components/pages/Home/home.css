@@ -40,14 +40,27 @@ h4 {
 #hero {
     display: flex;
     justify-content: center;
+    flex-direction: column;
 
-    padding-top: 325px;
+    width: 100%;
+    height: 500px;
+    padding-top: 300px;
     background-image:
     linear-gradient(to bottom, transparent, #181818),
     url('https://res.cloudinary.com/dgnio63sm/image/upload/v1675632930/hero_pzbtx2.jpg');
-    width: 100%;
-    height: 500px;
     background-size: cover;
+
+    text-align: center;
+}
+
+#hero img {
+    object-fit: contain;
+    height: 45px;
+    margin-bottom: 3px;
+}
+
+#hero h3 {
+    margin: 0;
 }
 
 /* Feature Showcase */
@@ -130,7 +143,12 @@ h4 {
 .display-image {
     height: 100%;
     width: 62%;
+    object-fit: cover;
     background-color: transparent;
+}
+
+.grayscale {
+    filter: grayscale(1);
 }
 
 .display-info {

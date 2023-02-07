@@ -6,7 +6,7 @@ body {
     margin: 0;
     font-family: Lora, sans-serif;
     background-color: #181818;
-    
+    overflow-x: hidden;
 }
 
 nav {
@@ -16,7 +16,7 @@ nav {
     background-color: transparent;
     color: #36454F;
     height: 90px;
-    padding: 30px 25px;
+    padding: 10px;
 }
 
 nav img {
