@@ -22,14 +22,14 @@ const typeDefs = gql`
         exhibitName: String!
         photo: String!
         body: String!
-        comments: [String]
+        comments: [Comment]
     }
 
     type Comment { 
         _id: ID!
         commentbody: String!
-        exhibitid: String!
-        userid: String!
+        exhibitid: Exhibit!
+        userid: User!
     }
 
     type Auth {

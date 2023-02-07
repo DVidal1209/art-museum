@@ -1,4 +1,4 @@
-const { signToken } = require("../../../../21-MERN/02-Challenge/book-search-engine/server/utils/auth");
+const { signToken } = require("../utils/auth");
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Comment, Exhibit, Museum } = require("../models");
 
