@@ -1,6 +1,6 @@
 const express = require ("express");
 const { ApolloServer } = require ("apollo-server-express")
-const { authMiddleware } = require("../../../21-MERN/02-Challenge/book-search-engine/server/utils/auth");
+const { authMiddleware } = require("./utils/auth");
 
 const { typeDefs, resolvers } = require ("./schema")
 const db = require("./config/connection");
@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, "../client"))
 })
 
-const startApolloServert = async (typeDefs, resolvers) => { 
+const startApolloServer = async (typeDefs, resolvers) => { 
     await server.start();
     server.applyMiddleware({ app })   
     db.once('open', () =>{  
@@ -31,4 +31,4 @@ const startApolloServert = async (typeDefs, resolvers) => {
     })
 }
 
-startApolloServert(typeDefs, resolvers);
+startApolloServer(typeDefs, resolvers);
