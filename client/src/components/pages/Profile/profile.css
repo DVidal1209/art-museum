@@ -43,17 +43,6 @@ body {
     border-radius: 10px 10px 10px 10px;
 }
 
-.museum-display .feature-display {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
-    margin-left: 100px;
-    box-shadow: 0px 5px 10px 0px rgba(245,255,250,0.7);
-    height: 500px;
-    width: 85%;
-    background-color: rgba(255, 255, 255, 0.025);
-}
-
 .logout {
     
         border-radius: 10px;
@@ -78,9 +67,3 @@ body {
     color: #36454F;
   cursor: pointer;
   }
-.museum-display .feature-display:hover {
-
-    transform: translateY(-5px);
-  box-shadow: 0px 10px 20px 2px rgba(240, 244, 250, 0.715);
-
-}

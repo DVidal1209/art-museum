@@ -9,7 +9,8 @@ export default function Museums(props) {
       <div className='feature-display m-b-m'>
         <div className='display-info'>
           <h2 className='display-title'>Seoul city</h2>
-          <h4 className='display-description'>Experimenting with city scapes and color! By: Author</h4>
+          <p>By: Author</p>
+          <h3 className='display-description'>Experimenting with city scapes and color!</h3>
         </div>
 
         <div class='museumimage' alt='seoul city'>
