@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import {
   ApolloClient,
@@ -8,13 +9,14 @@ import {
   createHttpLink
 } from "@apollo/client";
 
-import { setContext } from "@apollo/client/link/context"
+import { setContext } from "@apollo/client/link/context";
 
 import Header from './components/Header/Header';
 import Home from './components/pages/Home/Home';
 import Login from './components/pages/Login/Login';
 import Signup from './components/pages/Signup/Signup';
 import Museums from './components/pages/Museums/Museums';
+import Footer from './components/Footer/Footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -31,34 +33,33 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const [page, setPage] = useState('home')
-  const render = () => {
-    if (page === 'home') {
-      return <Home></Home>
-    }
-    else if (page === 'login') {
-      return <Login></Login>
-    }
-    else if (page === 'signup') {
-      return <Signup></Signup>
-    }
-     else if (page === 'museums') {
-      return <Museums></Museums>
-    }
-  }
-
-  const changePageFunction = (someString) => {
-    setPage(someString)
-  }
-
   return (
     <ApolloProvider client={client}>
-      <>
-        <Header changePageFunction={changePageFunction}></Header>
-        {render()}
-      </>
-    </ApolloProvider>
+      <Router>
+        <Header></Header>
+        <Routes>
+          <Route
+            path='/'
+            element={<Home />}
+          />
 
+          <Route
+            path='/museums'
+            element={<Museums />}
+          />
+
+          <Route
+            path='/signup'
+            element={<Signup />}
+          />
+
+          <Route
+            path='/login'
+            element={<Login />}
+          />
+        </Routes>
+      </Router>
+    </ApolloProvider>
   );
 }
 

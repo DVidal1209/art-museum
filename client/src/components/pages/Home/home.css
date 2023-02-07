@@ -44,7 +44,7 @@ h4 {
     padding-top: 325px;
     background-image:
     linear-gradient(to bottom, transparent, #181818),
-    url('../../../images/hero.jpeg');
+    url('https://res.cloudinary.com/dgnio63sm/image/upload/v1675632930/hero_pzbtx2.jpg');
     width: 100%;
     height: 500px;
     background-size: cover;
@@ -151,7 +151,7 @@ h4 {
     .right, .left {
         margin-left: 0;
     }
-    .feature-display {
+    #home-content .feature-display {
         width: 95%;
         margin: 0 auto;
     }
