@@ -9,6 +9,7 @@ export default function Navigation(props) {
                 <h2 onClick={() => window.location.href ='/museums'}>Museums</h2>
                 <h2 onClick={() => window.location.href ='/'}>Home</h2>
                 <h2 onClick={() => window.location.href ='/login'}>Login/Sign-up</h2>
+                <h2 onClick={() => window.location.href ='/profile'}>Profile</h2>
             </nav>
         </>
     )
