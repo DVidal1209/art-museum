@@ -1,6 +1,5 @@
 * {
     font-family: Lora, sans-serif;
-    color: white;
 }
 
 .base-container {
@@ -61,13 +60,17 @@ label {
     transition: all 250ms ease-in-out;
 }
 
-input:focus {
+input:hover {
     outline: none;
-    box-shadow: 0px 0px 12px 0.8px #f3f3f3;
+    box-shadow: 0px 0px 8px 0.8px #f3f3f3;
 }
 
+input:focus {
+    outline: none;
+    box-shadow: 0px 0px 8px 0.8px #f3f3f3;
+}
 
-/* .footer {
+.footer {
     margin-top: 3em;
 }
 
@@ -79,6 +82,7 @@ input {
     height: 30px;
     display: flex;
     align-items: center;
+    transition: 0.5s;
 }
 
 form {
@@ -88,6 +92,7 @@ form {
     align-items: center;
 }
 
+/*
 .signup-btn {
     border-radius: 10px;
     outline: 0;
@@ -145,14 +150,17 @@ form {
     margin: 2em 0 2em 0;
     height: 40px;
     width: 100px;
-    background-color: rgba(255, 255, 255, 0.04);
     text-align: center;
     cursor: pointer;
 }
 
 .btn {
-    margin-top: 7px;
     transition: 0.5s;
+    background-color: rgba(255, 255, 255, 0.04);
+    width: 100px;
+    height: 40px;
+    padding-top: 5px;
+    border-radius: 4px;
 }
 
 .btn:hover {

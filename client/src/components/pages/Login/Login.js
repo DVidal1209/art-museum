@@ -19,85 +19,85 @@ const Login = () => {
   const [showAlert, setShowAlert] = useState(false);
 
 
-    const handleInputChange = (event) => {
-      const { name, value } = event.target;
-      setUserFormData({ ...userFormData, [name]: value });
-    };
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
 
-    const handleFormSubmit = async (event) => {
-      event.preventDefault();
-  
-      try {
-        console.log(userFormData)
-        const data = await loginUser({
-          variables: { email: userFormData.email, password: userFormData.password }
-        });
-        console.log(data)
-  
-        const { token, user } = data.data.login;
-        Auth.login(token);
-      } catch (err) {
-        console.error(err);
-        setShowAlert(true);
-      }
-  
-      setUserFormData({
-        email: '',
-        password: '',
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      console.log(userFormData)
+      const data = await loginUser({
+        variables: { email: userFormData.email, password: userFormData.password }
       });
-    };
+      console.log(data)
+
+      const { token, user } = data.data.login;
+      Auth.login(token);
+    } catch (err) {
+      console.error(err);
+      setShowAlert(true);
+    }
+
+    setUserFormData({
+      email: '',
+      password: '',
+    });
+  };
 
 
 
-  return(
+  return (
     <>
-    <div className='base-container'>
-      <div className='header'>Login</div>
+      <div className='base-container'>
+        <div className='header'>Login</div>
         <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-          <Alert dismissible onClose={() => setShowAlert(false)} className= "alert" show={showAlert} variant='danger'>
-              Something went wrong with your login credentials!
-            </Alert>
-            <div className='content'>
-            <br/>
+          <Alert dismissible onClose={() => setShowAlert(false)} className="alert" show={showAlert} variant='danger'>
+            Something went wrong with your login credentials!
+          </Alert>
+          <div className='content'>
+            <br />
             <Form.Group className="form-group">
-              <Form.Label htmlFor = 'email'>Email</Form.Label>
-              <Form.Control 
+              <Form.Label htmlFor='email'>Email</Form.Label>
+              <Form.Control
                 type='text'
                 placeholder='Your email'
                 name='email'
                 onChange={handleInputChange}
                 value={userFormData.email}
                 required
-                />
+              />
             </Form.Group>
-            <Form.Group className = "form-group">
-              <Form.Label htmlFor = 'password'>Password</Form.Label>
-              <Form.Control 
+            <Form.Group className="form-group">
+              <Form.Label htmlFor='password'>Password</Form.Label>
+              <Form.Control
                 type='password'
                 placeholder='Your Password'
                 name='password'
                 onChange={handleInputChange}
                 value={userFormData.password}
                 required
-                />
+              />
             </Form.Group>
             <div className='login-footer'>
               <h2 className='btn' onClick={handleFormSubmit}>Login</h2>
-              <br/>
-              <h2 className='btn' onClick={ ()=> window.location.href= "/signup" }>
+              <br />
+              <h2 className='btn' onClick={() => window.location.href = "/signup"}>
                 Signup
               </h2>
             </div>
-            <br/>
+            <br />
           </div>
         </Form>
-    </div>
-    <br/>
-  </>
+      </div>
+      <br />
+    </>
   )
-  
+
 }
 
-export default  Login
+export default Login
 
 // // do npm install node-sass --save-dev
