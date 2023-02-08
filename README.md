@@ -3,6 +3,8 @@ BB Plaza is a platform for artists to curate a page for their works. A user's pr
 
 You can find the deployed application [here](https://protected-shore-90563.herokuapp.com/)
 
+
+# Screenshot
 ![home-page](https://res.cloudinary.com/dgnio63sm/image/upload/v1675890558/home-page_opsao8.png)
 
 ## Technologies Used
