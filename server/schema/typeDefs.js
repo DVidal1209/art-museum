@@ -4,6 +4,9 @@ const typeDefs = gql`
     type User {
         _id: ID!
         username: String!
+        photo: String
+        description: String
+        title: String
         email: String!
         museum: Museum
         password: String!
@@ -12,13 +15,15 @@ const typeDefs = gql`
     type Museum {
         _id: ID!
         museumName: String!
+        photo: String!
+        description: String
         userid: String!
         exhibits: [Exhibit]
     }
 
     type Exhibit {
         _id: ID!
-        museumId: String!
+        museumId: Museum!
         exhibitName: String!
         photo: String!
         body: String!
@@ -52,8 +57,8 @@ const typeDefs = gql`
         newUser(username: String!, email: String!, password: String!): Auth
         login(email: String!, password: String!): Auth
         addComment(commentbody: String!, exhibitid: String!): Comment
-        newMuseum(museumName: String!, userid: String!): Museum
-        newExhibit(museumId: String!, exhibitName: String!, photo: String, body: String): Exhibit
+        newMuseum(museumName: String!, userid: String!, description: String): Museum
+        newExhibit(museumId: String!, exhibitName: String!, photo: String!, body: String!): Exhibit
     }
 `
 

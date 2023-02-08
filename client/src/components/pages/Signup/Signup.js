@@ -6,7 +6,7 @@ import Auth from '../../../utils/auth'
 import { Form, Button, Alert } from 'react-bootstrap';
 import { NEW_USER } from '../../../utils/mutations';
 
-import { useMutation, useQuery } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 
 
 
@@ -60,7 +60,7 @@ const Signup = () => {
           </Alert>
           <div className='content'>
             <Form.Group className="form-group">
-              <Form.Label htmlFor='email'>Username</Form.Label>
+              <Form.Label htmlFor='username'>Username</Form.Label>
               <Form.Control
                 type='text'
                 placeholder='Your Username'

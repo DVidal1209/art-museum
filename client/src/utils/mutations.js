@@ -25,10 +25,12 @@ export const NEW_USER = gql`
     }
 `
 export const NEW_MUSEUM = gql`
-    mutation newMuseum($museumName: String!, $userid: String!) {
-            newMuseum(museumName: $museumName, userid: $userid) {
+    mutation newMuseum($museumName: String!, $userid: String!, $description: String) {
+        newMuseum(museumName: $museumName, userid: $userid, description: $description) {
             _id
             museumName
+            photo
+            description
             userid
         }
     }
