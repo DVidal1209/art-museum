@@ -1,17 +1,23 @@
 import { gql } from '@apollo/client';
 
 export const GET_ME = gql`
-    query me {
-        me {
-            _id
-            username
-            email
-            museum {
-                _id
-                museumName
-            }
-        }
+query Me {
+    me {
+      _id
+      username
+      photo
+      description
+      title
+      email
+      museum {
+        _id
+        museumName
+        photo
+        description
+      }
     }
+  }
+  
 `
 
 export const GET_USERS = gql`
@@ -46,20 +52,21 @@ export const GET_MUSEUMS = gql`
 `
 
 export const MY_MUSEUM = gql`
-    query myMuseum {
-        myMuseum {
-            _id
-            museumName
-            userid
-            exhibits {
-                _id
-                museumId
-                exhibitName
-                photo
-                body
-            }
-        }
+query myMuseum {
+    myMuseum {
+      _id
+      museumName
+      description
+      userid
+      exhibits {
+        _id
+        exhibitName
+        photo
+        body
+      }
     }
+  }
+  
 `
 
 export const SINGLE_MUSEUM = gql`

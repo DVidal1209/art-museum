@@ -5,6 +5,7 @@ const exhibitSchema = new Schema(
         museumId: {
             type: Schema.Types.ObjectId,
             ref: 'Museum',
+            required: true
         },
         exhibitName: {
             type: String,
