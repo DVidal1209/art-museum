@@ -67,3 +67,7 @@ body {
     color: #36454F;
   cursor: pointer;
   }
+
+  .center {
+    text-align: center;
+  }

@@ -4,31 +4,37 @@ const typeDefs = gql`
     type User {
         _id: ID!
         username: String!
+        photo: String
+        description: String
+        title: String
         email: String!
-        museum: [Museum]
+        museum: Museum
         password: String!
     }
 
     type Museum {
         _id: ID!
         museumName: String!
+        photo: String!
+        description: String
         userid: String!
         exhibits: [Exhibit]
     }
 
     type Exhibit {
         _id: ID!
+        museumId: Museum!
         exhibitName: String!
         photo: String!
         body: String!
-        comments: [String]
+        comments: [Comment]
     }
 
     type Comment { 
         _id: ID!
         commentbody: String!
-        exhibitid: String!
-        userid: String!
+        exhibitid: Exhibit!
+        userid: User!
     }
 
     type Auth {
@@ -36,22 +42,23 @@ const typeDefs = gql`
         user: User
     }
 
-    type CreatedComment {
-        Exhibit: [Exhibit]
-        Comment: [Comment]
-    }
-
     type Query {
         getUsers: [User]
         me: User
+        getMuseums: [Museum]
+        myMuseum: Museum
+        singleMuseum: Museum
+        singleExhibit: Exhibit
+        myComments: [Comment]
+        getComments: [Comment]
     }
 
     type Mutation {
         newUser(username: String!, email: String!, password: String!): Auth
         login(email: String!, password: String!): Auth
-        addComment(userid: String!, commentbody: String!, exhibitid: String!): CreatedComment
-        newMuseum(museumName: String!, userid: String!): Museum
-        newExhibit(museumName: String!, exhibitName: String!, photo: String, body: String): Museum
+        addComment(commentbody: String!, exhibitid: String!): Comment
+        newMuseum(museumName: String!, userid: String!, description: String): Museum
+        newExhibit(museumId: String!, exhibitName: String!, photo: String!, body: String!): Exhibit
     }
 `
 

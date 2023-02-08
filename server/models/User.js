@@ -9,6 +9,19 @@ const userSchema = new Schema(
             required: true,
             unique: true
         },
+        photo: {
+            type: String,
+            required: false,
+            default: "https://res.cloudinary.com/dgnio63sm/image/upload/v1675812446/274133_ru4znp.png"
+        },
+        description: {
+            type: String,
+            required: false
+        },
+        title: {
+            type: String,
+            required: false
+        },
         email: {
             type: String,
             required: true,

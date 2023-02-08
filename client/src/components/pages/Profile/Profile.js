@@ -1,48 +1,103 @@
 import React from 'react'
 import './profile.css'
+import Auth from '../../../utils/auth'
+import { GET_ME, MY_MUSEUM } from '../../../utils/queries'
+import { useQuery, useMutation } from '@apollo/client'
+import { Form, Button, Alert } from 'react-bootstrap';
+import { NEW_MUSEUM } from '../../../utils/mutations'
+import { useState } from 'react'
 
 export default function Profile() {
+
+    const [newMuseum, { error }] = useMutation(NEW_MUSEUM)
+    const { loading, data } = useQuery(GET_ME)
+
+    const museumResult = useQuery(MY_MUSEUM);
+
+    const museumDataLoading = museumResult.loading;
+    const museumData = museumResult.data?.myMuseum || {};
+
+    const userData = data?.me || {};
+
+    const [museumFormData, setMuseumFormData] = useState({ museumName: '', description: '' });
+    const [validated] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
+
+
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setMuseumFormData({ ...museumFormData, [name]: value });
+    };
+
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            console.log(museumFormData)
+            const data = await newMuseum({
+                variables: { museumName: museumFormData.museumName, description: museumFormData.description }
+            });
+
+            const { token, user } = data.data.newMuseum;
+            console.log(data.data.newMuseum);
+        } catch (err) {
+            console.error(err);
+            setShowAlert(true);
+        }
+
+        setMuseumFormData({
+            description: '',
+            museumName: '',
+        });
+    }
+
     return (
         <>
-        
-        <div class="card">
-  <img class = 'profile-image' src="https://res.cloudinary.com/dgnio63sm/image/upload/v1675383041/E4FB0142-660E-4BD1-A317-82C09A7E440D_1_105_c_duedle.jpg" alt="John"></img>
-  <h1>John Papa</h1>
-  <p class="title">CEO & Founder, Papa Johns</p>
-  <p>I might be the coolest guy. I once ate 40 pizzas in 30 days.</p>
-        </div>
-        <div class="museum-display">
-            <div className='feature-display m-b-m'>
-                <div className='display-info'>
-                    <h2 className='display-title'>Zadar sunset</h2>
-                    <h4 className='display-description'>SooOoOoO gorgeous! By: Author</h4>
-                </div>
+            {loading || museumDataLoading ? (
+                <h1>Loading</h1>
+            ) : (
+                <>
 
-                <div class='museumimage' alt='zadar water'>
-                    <img src='https://res.cloudinary.com/dgnio63sm/image/upload/v1675383015/3D5645D8-B0C6-41AA-B76A-1E6C694CC08B_1_105_c_pztw8y.jpg'>
+                    {console.log("Museum 2nd try:", userData.museum)}
 
-                    </img>
-                </div>
-            </div>
-
-            <a href=''> <div className='feature-display m-b-m'>
-                <div className='display-info'>
-                    <h2 className='display-title'>Boats N' Water</h2>
-                    <h4 className='display-description'>Boat on water in Zadar! By: Author</h4>
-                </div>
-
-                <div class='museumimage' alt=''>
-                    <img src='https://res.cloudinary.com/dgnio63sm/image/upload/v1675383057/7A78B1BB-2B1E-40DB-8596-3CCB37EB5A58_1_105_c_lhkl5v.jpg'>
-
-                    </img>
-
-        
-                </div>
-            </div>
-            <h2 onClick={() => window.location.href ='/profile'} id='logout' class='logout'>Logout</h2>
-            </a>
-
-        </div>
+                    <div className="card">
+                        {console.log(userData)}
+                        <img className='profile-image' src={userData.photo} alt="John"></img>
+                        <h1>{userData.username}</h1>
+                        <p className="title">{userData.title}</p>
+                        <p>{userData.description}</p>
+                    </div>
+                    <div className="museum-display">
+                        {!userData.museum ? (
+                            <>
+                                <h1>No Museums found</h1>
+                            </>
+                        ) : (
+                            <>
+                                <h1 className="center">{museumData.museumName}</h1>
+                                {
+                                    museumData.exhibits?.map((exhibit) => {
+                                        return (
+                                            <div className='feature-display m-b-m'>
+                                                <>
+                                                    <div className='display-info'>
+                                                        <h2 className='display-title'>{exhibit.exhibitName}</h2>
+                                                        <h4 className='display-description'>{exhibit.body}</h4>
+                                                    </div>
+                                                    <div className='museumimage' alt={exhibit.exhibitName}>
+                                                        <img src={exhibit.photo}>
+                                                        </img>
+                                                    </div>
+                                                </>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </>
+                        )}
+                    </div>
+                </>
+            )}
         </>
 
 
