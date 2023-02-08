@@ -1,6 +1,5 @@
 import React from 'react';
-//fix this path?
-import '../Login/login.css'
+import '../Signup/Signup.js'
 
 export default class Signup extends React.Component {
 

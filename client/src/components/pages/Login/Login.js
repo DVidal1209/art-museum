@@ -1,6 +1,6 @@
 import React from 'react';
-//fix this path?
-import '../Login/login.css'
+import '../Login/login.css';
+// import '../Signup/Signup.js';
 
 export default class Login extends React.Component {
 
@@ -12,9 +12,10 @@ export default class Login extends React.Component {
       <div className='header'>Login</div>
       <div className='content'>
         <div className='form'>
+          <div className='container'>
           <div className='form-group'>
             <label htmlFor='email'>Email</label>
-            <input type='email' name='email' placeholder='Email'/>
+            <input type='email' name='email' placeholder='Email' />
           </div>
           <div className='form-group'>
             <label htmlFor='password'>Password</label>
@@ -23,7 +24,13 @@ export default class Login extends React.Component {
         </div>
       </div>
       <div className='footer'>
-        <button type='button' className='btn'>Login</button>
+        <button type='button' className='login-btn'>Login</button>
+      </div>
+      </div>
+      <div className='signup'>
+        <label id='signup' htmlFor='signup'>Don't have an account? Sign up here</label>
+        <div></div>
+        <button type='button' className='signup-btn'>Sign Up</button>
       </div>
     </div>
   }
